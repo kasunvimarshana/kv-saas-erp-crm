@@ -61,8 +61,8 @@ class SalesOrderController extends Controller
             'lines.*.product_id' => 'required|exists:products,id',
             'lines.*.quantity' => 'required|numeric|min:0',
             'lines.*.unit_price' => 'required|numeric|min:0',
-            'lines.*.discount_amount' => 'nullable|numeric|min:0',
-            'lines.*.tax_amount' => 'nullable|numeric|min:0',
+            'lines.*.discount_percent' => 'nullable|numeric|min:0|max:100',
+            'lines.*.tax_percent' => 'nullable|numeric|min:0|max:100',
             'lines.*.line_total' => 'required|numeric|min:0',
             'lines.*.description' => 'nullable|string',
         ]);
@@ -123,8 +123,8 @@ class SalesOrderController extends Controller
             'lines.*.product_id' => 'required|exists:products,id',
             'lines.*.quantity' => 'required|numeric|min:0',
             'lines.*.unit_price' => 'required|numeric|min:0',
-            'lines.*.discount_amount' => 'nullable|numeric|min:0',
-            'lines.*.tax_amount' => 'nullable|numeric|min:0',
+            'lines.*.discount_percent' => 'nullable|numeric|min:0|max:100',
+            'lines.*.tax_percent' => 'nullable|numeric|min:0|max:100',
             'lines.*.line_total' => 'required|numeric|min:0',
             'lines.*.description' => 'nullable|string',
         ]);

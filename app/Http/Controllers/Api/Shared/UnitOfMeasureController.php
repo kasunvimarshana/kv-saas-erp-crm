@@ -37,7 +37,9 @@ class UnitOfMeasureController extends Controller
         $validated = $request->validate([
             'code' => 'required|string|max:20|unique:unit_of_measures,code',
             'name' => 'required|string|max:100',
-            'description' => 'nullable|string',
+            'category' => 'nullable|string|max:100',
+            'base_unit_id' => 'nullable|exists:unit_of_measures,id',
+            'conversion_factor' => 'nullable|numeric|min:0',
             'is_active' => 'nullable|boolean',
         ]);
 
@@ -62,7 +64,9 @@ class UnitOfMeasureController extends Controller
         $validated = $request->validate([
             'code' => 'sometimes|string|max:20|unique:unit_of_measures,code,' . $unitOfMeasure->id,
             'name' => 'sometimes|string|max:100',
-            'description' => 'nullable|string',
+            'category' => 'nullable|string|max:100',
+            'base_unit_id' => 'nullable|exists:unit_of_measures,id',
+            'conversion_factor' => 'nullable|numeric|min:0',
             'is_active' => 'nullable|boolean',
         ]);
 
