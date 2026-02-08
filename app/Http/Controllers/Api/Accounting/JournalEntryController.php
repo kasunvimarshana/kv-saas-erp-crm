@@ -54,6 +54,7 @@ class JournalEntryController extends Controller
             'lines.*.account_id' => 'required|exists:accounts,id',
             'lines.*.debit' => 'required|numeric|min:0',
             'lines.*.credit' => 'required|numeric|min:0',
+            'lines.*.currency_code' => 'nullable|string|max:3',
             'lines.*.description' => 'nullable|string',
         ]);
 
@@ -111,6 +112,7 @@ class JournalEntryController extends Controller
             'lines.*.account_id' => 'required|exists:accounts,id',
             'lines.*.debit' => 'required|numeric|min:0',
             'lines.*.credit' => 'required|numeric|min:0',
+            'lines.*.currency_code' => 'nullable|string|max:3',
             'lines.*.description' => 'nullable|string',
         ]);
 

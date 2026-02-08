@@ -20,6 +20,7 @@ class JournalEntryLineResource extends JsonResource
             'account_id' => $this->account_id,
             'debit' => $this->debit,
             'credit' => $this->credit,
+            'currency_code' => $this->currency_code,
             'description' => $this->description,
             'created_at' => $this->created_at->toDateTimeString(),
             'updated_at' => $this->updated_at->toDateTimeString(),

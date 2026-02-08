@@ -38,6 +38,7 @@ class LanguageController extends Controller
             'code' => 'required|string|max:10|unique:languages,code',
             'name' => 'required|string|max:100',
             'native_name' => 'nullable|string|max:100',
+            'direction' => 'nullable|string|in:ltr,rtl',
             'is_active' => 'nullable|boolean',
         ]);
 
@@ -63,6 +64,7 @@ class LanguageController extends Controller
             'code' => 'sometimes|string|max:10|unique:languages,code,' . $language->id,
             'name' => 'sometimes|string|max:100',
             'native_name' => 'nullable|string|max:100',
+            'direction' => 'nullable|string|in:ltr,rtl',
             'is_active' => 'nullable|boolean',
         ]);
 

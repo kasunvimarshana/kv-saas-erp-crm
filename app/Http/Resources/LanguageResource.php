@@ -19,6 +19,7 @@ class LanguageResource extends JsonResource
             'code' => $this->code,
             'name' => $this->name,
             'native_name' => $this->native_name,
+            'direction' => $this->direction,
             'is_active' => $this->is_active,
             'created_at' => $this->created_at->toDateTimeString(),
             'updated_at' => $this->updated_at->toDateTimeString(),
