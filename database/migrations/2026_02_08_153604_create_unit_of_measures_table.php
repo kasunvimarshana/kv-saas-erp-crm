@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('unit_of_measures', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('code')->unique();
+            $table->string('category')->nullable();
+            $table->foreignId('base_unit_id')->nullable()->constrained('unit_of_measures')->onDelete('set null');
+            $table->decimal('conversion_factor', 12, 6)->default(1.000000);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
+
+            $table->index(['code', 'category', 'is_active']);
         });
     }
 

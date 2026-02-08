@@ -13,7 +13,19 @@ return new class extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('organization_id')->constrained()->onDelete('cascade');
+            $table->foreignId('parent_id')->nullable()->constrained('accounts')->onDelete('set null');
+            $table->string('code')->unique();
+            $table->string('name');
+            $table->enum('account_type', ['asset', 'liability', 'equity', 'revenue', 'expense']);
+            $table->string('currency_code', 3)->default('USD');
+            $table->text('description')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->index(['organization_id', 'account_type', 'is_active']);
+            $table->index(['code', 'organization_id']);
         });
     }
 
