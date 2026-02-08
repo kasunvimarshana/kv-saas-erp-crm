@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('languages', function (Blueprint $table) {
             $table->id();
+            $table->string('code', 10)->unique();
+            $table->string('name');
+            $table->string('native_name')->nullable();
+            $table->enum('direction', ['ltr', 'rtl'])->default('ltr');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
+
+            $table->index(['code', 'is_active']);
         });
     }
 
