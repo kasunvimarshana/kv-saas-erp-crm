@@ -87,7 +87,7 @@ class JournalEntryController extends Controller
     /**
      * Update the specified journal entry.
      */
-    public function update(Request $request, JournalEntry $journalEntry): JournalEntryResource
+    public function update(Request $request, JournalEntry $journalEntry): JournalEntryResource|JsonResponse
     {
         $tenant = app('tenant');
         
